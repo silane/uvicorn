@@ -27,7 +27,7 @@ def build_environ(
     """
     environ = {
         "REQUEST_METHOD": scope["method"],
-        "SCRIPT_NAME": "",
+        "SCRIPT_NAME": scope.get("root_path", ""),
         "PATH_INFO": scope["path"].encode("utf8").decode("latin1"),
         "QUERY_STRING": scope["query_string"].decode("ascii"),
         "SERVER_PROTOCOL": "HTTP/%s" % scope["http_version"],
