@@ -10,7 +10,7 @@ def build_environ(scope, message, body):
     """
     environ = {
         "REQUEST_METHOD": scope["method"],
-        "SCRIPT_NAME": "",
+        "SCRIPT_NAME": scope.get("root_path", ""),
         "PATH_INFO": scope["path"],
         "QUERY_STRING": scope["query_string"].decode("ascii"),
         "SERVER_PROTOCOL": "HTTP/%s" % scope["http_version"],
